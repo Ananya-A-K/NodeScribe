@@ -1,0 +1,146 @@
+NOTE TAKING APPLICATION WITH MERN(MongoDB,Express,React,Node):
+Responsive design
+Rate limiting
+REST API 
+Deployed
+
+Build API -> test it -> frontend with react
+
+Create a new note, update and delete note
+
+Backend: build the API      - Node
+Frontend: react application - React
+Database: MongoDB
+To store data
+
+Express: A stable and widely used web framework(a ready to use toolbox to build web apps faster and more easily)
+    Why use a web framework? saves time, cleaner code, more organised, handles common tasks(like routing, error handling)
+NodeJS: A javascript runtime.
+    Allows to run JS on server (usually js can be run on cient like a browser but nodejs allows to run it on local or on server)
+ReactJS: Popular frontend library
+
+Client -- request--> server --changes/retrieval--> database
+Client <--response-- server
+
+API(Application Programming Interface): allows two different applications to talk to each other
+    end user <-requesst/response-> API <--> server back-end system <--> API <--> database
+    Waiter Analogy: Customer<-->"Waiter"<-->Chef
+    Why need API? Can't we just interact w/t db or backend directly?
+        To prevent malicious use of backend like corrupt db, steal data, etc
+        APIs are usually the most common wa to interact w/ application and perform only a specific task it is designed for so less threat
+    Types:
+        REST: Representational State Transfer
+            Most common API
+            HTTP methods:
+                GET: retrieve data
+                POST: create data
+                PUT: update or insert data
+                DELETE: delete data
+                PATCH: update part of data
+            API design:
+                API should be self-describing,stateless,idempotent,cacheable,versioned,extensible,secure,scalable,testable,maintainable
+
+HTTP Status Codes:
+    1xx: Informational responses
+    2xx: Success
+         200 OK - Everything worked as expected
+         201 Created - New resource successfully created(Ex: after post request)
+    3xx: Redirection
+         Resource requested is somewhere else 
+         301 Moved permanently - Ex: abc.com changes to abcd.com a 302 redirect can be set up so that clients and google know to go to new url
+    4xx: Client Error
+         Browser or app made a bad request
+         400 Bad request - Invalid or malformed request
+         401 Unauthorized - Not authenticated or logged in(missing or invalid credentials)
+         403 Forbidden - Client is authenticated(??) but not allowed to access the resource ie., NOT authorized
+         404 Not found - URL doesn't exist
+         429 - Too many requests(rate limiting)
+    5xx: Server Error
+         Something wrong on server side even tho client made valid request(server tried but failed)
+         500 Internal server error - Something broke on server
+         503 Service unavailable - Server is down or temporaarily overloaded/busy
+         504 Gateway timeout - Server can't reach the backend
+
+Running server w/ nodemon monitors changes while node doesn't. So during development use nodemon and in production use node(if any changes in prod, we need to deploy it again)
+
+Route: Defines an endpoint. When user request is rcvd, a certain action is performed.
+    Ex- app.get("/api/notes",(req,res)=>{ //GET request /api/notes functonality
+            //send notes
+            res.status(200).send("you got 10 notes");
+        });
+
+Endpoint: Combination of URL + HTTP method that lets client interact w/ specific resource
+
+import express from "express"; //module
+//const express = require("express"); //common js 
+
+Controllers - Functions that perform specific task
+    Ex- 1.  app.get("/api/notes",(req,res)=>{ //GET request /api/notes functonality
+                //send notes
+                res.status(200).send("you got 10 notes");
+            });
+        2.  app.post("/api/notes",(req,res)=>{ //POST request /api/notes functonality
+                //send notes
+                res.status(200).send("you got 10 notes");
+            });
+
+SQL   : MySQL,PostgreSQL
+    Structured data - data stored in tables w/ rows and columns like a spreadsheet
+    Uses SQL language -  use structured queries(select,insert,etc) to interact w/ db
+    Best for complex queries - ideal when u need relationships btw data like orders and customers
+    Like social median app, bank applications
+
+NO-SQL: MongoDB,cassandra,neo4j
+    Unstructured data - flexible data format like json or key-value pairs, good for chnaging data shapes
+    Uses query lang or API - Each NoSQL db has its own way of querying, often simpler and faster for certain tasks
+    Best for big data & real time apps - Great for fast changing or huge amt of data
+
+Connection string - url that connects to db
+    Ex- mongodb://localhost:27017/notes
+    In github it shouldn't be visible so we use .env file and dotenv package to hide the connection string and access locally it
+    On deployment, .env file is hidden w/ a .gitignore file
+
+Middleware - Function that runs int he middle btw request and response
+    client <---------req---------> server
+    client <--res--|middleware|--> server
+    app.use() - add middleware
+    Use - authentication checks(creating post on insta, middleware checks if user  is authenticated or logged in)
+          rate limiting
+
+Rate limiting : way to control often someone can do something on a website or app like no of times page can be refreshed, make a request to a API, or try to login
+    Ex- 100 requests per user every 15mins
+    This prevents server crash due to overload od requests, brute force password attacks, prevents abuse and ensures more equitable access to application
+    429 - too many requests
+    Use upstash
+
+Connect to db and then listen or start application.. if connection to db fails, there's no point in starting the server
+
+React application is setup using vite, and setup browser router.
+
+Tailwind CSS is used
+
+CORS(Cross-Origin Resource Sharing) - allows web app to make requests to other domains
+    - A browser security rule
+    - When a website tries to get data from another website , like frontend calling an API on a different domain, the browser might block it for security reasons.
+    Ex- frontend: http://localhost:3000
+        API backend: http://api.example.com
+        frontend makes a fetch requestto get data: http://api.example.com/users
+        But browser says, ur coming from localhost:3000 and trying to access api.example.com, that's a different origin. The browser needs to ensure that the API "allows" it
+    Ex- Facebook app can make requests to instagram
+        Not all domains can make requests to each other
+        CORS is a security feature that prevents unauthorized requests
+        To allow requests from other domains, server must set appropriate headers in response
+
+
+bg.ibelick.com for patterns and effects on website
+/*
+vbananya
+mern_go_61*
+
+Connection string: mongodb+srv://vbananya:mern_go_61*@cluster0.p3f9gyf.mongodb.net/
+
+mongodb+srv://vbananya:mern_go_61*@cluster0.j3uuwl5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+promises
+async await
+*/

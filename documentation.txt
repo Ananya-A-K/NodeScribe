@@ -1,0 +1,24 @@
+1. npm init -y : gets the package json file where different packages can be installed
+2. npm install express@4.18.2 : installs express
+3. node server.js : run server
+4. Use- type = "module" or "commonjs" in package.json file to use ES6 modules or CommonJS modules respectively.
+5. npm run dev : to run the dev script described in package.json file
+6. npm install nodemon -D : install nodemon as a dev dependency(nodemon updates code changes and on refreshing in browser, changes are refected w/o killing terminal and re-running code)
+
+Create a mongodb project and connect w/ nodejs drivers using conection string
+
+7. npm install mongoose@7.0.3 : install mongoose(makes it easier to work w/ MongoDB)
+8. nom i dotenv : install dotenv to load env variables from .env file
+9. npm i @upstash/ratelimit@2.0.5 @upstash/redis@1.34.9 : install upstash ratelimit and redis
+10. npm create vite@latest . : create react application using vite in the current folder (.)
+11. npm i react-router : create web pages
+12. npm i react-hot-toast 
+13. rafce - react broilerplate
+14. npm install -D tailwindcss@3 postcss autoprefixer
+    npx tailwindcss init -p
+    => instal tailwindcss dependencies
+15. npm i -D daisyui@4.12.24 - use daisyui, tailwind css library to make code more shorter and elegant
+16. npm i lucide-react - package that's useful to deal with many icons
+17. npm i axios - we replace fetch API w/ axios
+18. npm i cors - enable frontend to call an API on a different origin 
+19. 
