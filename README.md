@@ -102,7 +102,7 @@ Edit
 cd backend
 npm install
 npm run dev
-Runs the backend on http://localhost:5000
+Runs the backend on http://localhost:5001
 
 💻 Frontend Setup
 bash

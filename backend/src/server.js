@@ -4,18 +4,24 @@ import { connectDB } from "./config/db.js";
 import dotenv from "dotenv";
 import rateLimiter from "./middleware/rateLimiter.js";
 import cors from "cors";
+import path from "path";
 
 dotenv.config();
 //console.log(process.env.MONGO_URI);
 
 const app=express();    //creates an object
 const PORT=process.env.PORT || 5001; // default 5001, if port undefined
+const __dirname = path.resolve(); //get the current directory path or source directry for backend
 
 
 //middleware order of middleware matters
-app.use(cors({
-    origin: "http://localhost:5173",
-}));
+//DEV ENVIRONMENT
+if(process.env.NODE_ENV !== "production"){
+    app.use(cors({
+        origin: "http://localhost:5173",
+    }));
+}
+
 app.use(express.json()); //middleware to parse or access the data in the request body as a json data
 app.use(rateLimiter);
 
@@ -27,6 +33,14 @@ app.use(rateLimiter);
 // })
 
 app.use("/api/notes",notesRoutes);
+//PRODUCTION PART
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname, "../frontend/dist"))) //optimised react application after taking care that CORS errors are unlikely during deployment
+
+    app.get("*",(req,res)=>{
+        res.sendFile(path.join(__dirname, "../frontend","dist", "index.html"));
+    });
+}
 
 //connect to db and then listen or application starts.. if connection to db fails, there's no point in starting the server
 connectDB().then(()=>{

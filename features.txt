@@ -133,6 +133,17 @@ CORS(Cross-Origin Resource Sharing) - allows web app to make requests to other d
 
 
 bg.ibelick.com for patterns and effects on website
+
+Deployment:
+    - Serve backend and frontend from the same domain ie., from backend here. We can do it from different domains too but we don't want that way. (We do it one domain coz we can use one domain to serve both backend and frontend
+    - Use a service like Vercel or Netlify to deploy the app
+    - Configure the service to serve the frontend from the same domain as the backend
+    - Test the app on the deployed domain to ensure everything is working as expected)
+    - Since we are deploying from smae domain we will not get CORS errors.
+
+We do not upload node dependencies onto Github but we need those during deployment. So we have build and start in package.json file in the root to install them and run.
+Certain configs change in prod and dev like we do not need CORS, localhost, etc. This must be handles appropriately.
+
 /*
 vbananya
 mern_go_61*
