@@ -2,7 +2,7 @@
 
 
 <img src="/screenshots/login.png" alt ="login" width="80%" />
-<img src="/screenshots/create.png" alt="create" width="80%" /> ss
+<img src="/screenshots/create.png" alt="create" width="80%" /> 
 
 
 
@@ -20,7 +20,7 @@ This project was built as a **hands-on learning experience**, to explore backend
 
 
 ## ⚙️ Key Features & Technical Highlights
- <details> NodeScribe is designed to demonstrate a wide range of full-stack development concepts. Below are the core features and technical implementations that showcase real-world best practices in modern web development:
+ NodeScribe is designed to demonstrate a wide range of full-stack development concepts. Below are the core features and technical implementations that showcase real-world best practices in modern web development:
 
 ✅ Full-Stack MERN Architecture
 Built using the MERN stack: MongoDB (NoSQL database), Express.js (web framework), React.js (frontend library), and Node.js (runtime environment).
