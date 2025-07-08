@@ -9,8 +9,11 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [daisyui],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('daisyui'),
+  ],
   daisyui: {
-    themes: ["forest"],
+    themes: ["light", "dark", "cupcake"],
   },
 }

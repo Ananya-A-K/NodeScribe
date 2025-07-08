@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { useAuth } from '../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -13,67 +13,74 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
+    if (!email || !password) {
+      toast.error('Please fill in all fields');
+      return;
+    }
+
     try {
-      setError('');
       setLoading(true);
       await login(email, password);
+      toast.success('Logged in successfully!');
       navigate('/');
     } catch (error) {
-      setError('Failed to log in: ' + error.message);
+      console.error('Login error:', error);
+      toast.error('Failed to log in. Please check your credentials.');
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-base-200">
+    <div className="min-h-screen bg-base-200 flex items-center justify-center">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="card-title justify-center text-2xl mb-4">Login to NodeScribe</h2>
+          <h2 className="card-title justify-center text-2xl mb-4">
+            📝 NodeScribe Login
+          </h2>
           
-          {error && (
-            <div className="alert alert-error mb-4">
-              <span>{error}</span>
-            </div>
-          )}
-
           <form onSubmit={handleSubmit}>
-            <div className="form-control w-full mb-4">
+            <div className="form-control mb-4">
               <label className="label">
                 <span className="label-text">Email</span>
               </label>
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="input input-bordered w-full"
+                className="input input-bordered"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                disabled={loading}
               />
             </div>
-
-            <div className="form-control w-full mb-6">
+            
+            <div className="form-control mb-6">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
               <input
                 type="password"
                 placeholder="Enter your password"
-                className="input input-bordered w-full"
+                className="input input-bordered"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                disabled={loading}
               />
             </div>
-
-            <button 
-              type="submit" 
-              className={`btn btn-primary w-full ${loading ? 'loading' : ''}`}
-              disabled={loading}
-            >
-              {loading ? 'Logging in...' : 'Login'}
-            </button>
+            
+            <div className="form-control">
+              <button 
+                type="submit" 
+                className={`btn btn-primary ${loading ? 'loading' : ''}`}
+                disabled={loading}
+              >
+                {loading ? 'Logging in...' : 'Login'}
+              </button>
+            </div>
           </form>
-
+          
           <div className="divider">OR</div>
           
           <p className="text-center">

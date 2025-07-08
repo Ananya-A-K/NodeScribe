@@ -10,27 +10,36 @@ import NoteDetailPage from "./pages/NoteDetailPage";
 
 const App = () => {
   return (
-    /*<AuthProvider>
+    <AuthProvider>
       <div className="min-h-screen bg-base-200">
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route 
-            path="/" 
-            element={
+          <Route path="/" element={
               <ProtectedRoute>
                 <Header />
-                <NotesPage />
               </ProtectedRoute>
             } 
           />
+          <Route path="/create" element={
+            <ProtectedRoute>
+              <CreatePage />
+            </ProtectedRoute>
+          } />
+          <Route path="/note/:id" element={
+            <ProtectedRoute>
+              <NoteDetailPage />
+            </ProtectedRoute>
+          } />
         </Routes>
       </div>
-    </AuthProvider>*/
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h1>NodeScribe</h1>
-      <p>App is working!</p>
-    </div>
+    </AuthProvider>
+
+    // testing frontend
+    // <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+    //   <h1>NodeScribe</h1>
+    //   <p>App is working!</p>
+    // </div>
 
     //Authentication first, then homepage is displayed
     // <div className="relative h-full w-full">

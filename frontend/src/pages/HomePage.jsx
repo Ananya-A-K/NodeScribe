@@ -50,6 +50,7 @@ const HomePage = () => {
     try {
       await api.delete(`/notes/${id}`);
       setNotes(notes.filter(note => note._id !== id));
+      toast.success('Note deleted successfully');
     } catch (error) {
       console.error('Error deleting note:', error);
       if (error.response?.status === 429) {
@@ -57,6 +58,7 @@ const HomePage = () => {
       } else {
         setError('Failed to delete note. Please try again.');
       }
+      toast.error('Failed to delete note');
     }
   };
 

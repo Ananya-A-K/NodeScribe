@@ -1,5 +1,6 @@
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const Header = () => {
   const { user, logout } = useAuth();
@@ -8,27 +9,41 @@ const Header = () => {
   const handleLogout = async () => {
     try {
       await logout();
+      toast.success('Logged out successfully');
       navigate('/login');
     } catch (error) {
-      console.error('Failed to log out:', error);
+      toast.error('Error logging out');
     }
   };
 
+  if (!user) return null;
+
   return (
-    <div className="navbar bg-base-100 shadow-lg mb-6">
-      <div className="flex-1">
-        <span className="text-xl font-bold">📝 NodeScribe</span>
+    <div className="navbar bg-base-100 shadow-lg">
+      <div className="navbar-start">
+        <Link to="/" className="btn btn-ghost text-xl">
+          📝 NodeScribe
+        </Link>
       </div>
-      <div className="flex-none gap-2">
+      
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1">
+          <li><Link to="/">My Notes</Link></li>
+          <li><Link to="/create">Create Note</Link></li>
+        </ul>
+      </div>
+      
+      <div className="navbar-end">
         <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full bg-primary text-primary-content flex items-center justify-center">
-              {user?.email?.charAt(0).toUpperCase() || 'U'}
+              {user.email?.charAt(0).toUpperCase()}
             </div>
-          </label>
+          </div>
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-            <li><span className="text-sm opacity-70">{user?.email}</span></li>
-            <li><button onClick={handleLogout} className="text-error">Logout</button></li>
+            <li><span className="text-sm opacity-70">{user.email}</span></li>
+            <li><hr /></li>
+            <li><button onClick={handleLogout}>Logout</button></li>
           </ul>
         </div>
       </div>

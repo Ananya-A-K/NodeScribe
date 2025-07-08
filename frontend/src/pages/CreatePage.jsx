@@ -43,6 +43,13 @@ const CreatePage = () => {
         } else {
           setError('Failed to fetch note. Please try again.');
         }
+        if (error.response) {  // ← FIX: Check error.response first
+            toast.error(error.response.data.message || 'Failed to create note');
+        } else if (error.request) {  // ← FIX: Handle connection errors
+            toast.error('Cannot connect to server. Please check if backend is running.');
+        } else {
+            toast.error('An error occurred while creating the note');
+        }
       } finally {
         setLoading(false);
       }
@@ -67,10 +74,14 @@ const CreatePage = () => {
           setSuccess('Note updated successfully!');
           toast.success("Note updated successfully!");
         } else{
-            await api.post("/notes",{
+            const response = await api.post("/notes",{
             title: title.trim(),
             content: content.trim()
           });
+          if (response.status === 201) {  // ← FIX: Correct status check
+            toast.success('Note created successfully!');
+            navigate('/');
+          }
           setSuccess('Note created successfully!');
           toast.success("Note created successfully!");
         }
@@ -81,23 +92,40 @@ const CreatePage = () => {
 
       } catch(error){
         console.log("Error creating note", error);
-        //toast.error("Failed to create note");
-        if(error.response.status===429){
-            setError('Too many requests. Please try again later.');
-            toast.error("Slow down! You're creating notes too fast",{
-              duartion: 4000,
-              icon: "💀",
-            });
+        if (error.response?.status === 429) {
+          setError('Too many requests. Please try again later.');
+          toast.error("Slow down! You're creating notes too fast", {
+            duration: 4000,
+            icon: "💀",
+          });
         } else if (error.response?.status === 401) {
-            setError('You are not authorized. Please log in again.');
-            toast.error("Oops! It seems like you're not authorized. Please log in again.",{
-              duartion: 4000,
-              icon: "⛔",
-            });
-        } else{
+          setError('You are not authorized. Please log in again.');
+          toast.error("Oops! It seems like you're not authorized. Please log in again.", {
+            duration: 4000,
+            icon: "⛔",
+          });
+        } else {
           setError(`Failed to ${isEditing ? 'update' : 'create'} note. Please try again.`);
           toast.error(`Failed to ${isEditing ? 'update' : 'create'} note`);
         }
+        // console.log("Error creating note", error);
+        // //toast.error("Failed to create note");
+        // if(error.response.status===429){
+        //     setError('Too many requests. Please try again later.');
+        //     toast.error("Slow down! You're creating notes too fast",{
+        //       duartion: 4000,
+        //       icon: "💀",
+        //     });
+        // } else if (error.response?.status === 401) {
+        //     setError('You are not authorized. Please log in again.');
+        //     toast.error("Oops! It seems like you're not authorized. Please log in again.",{
+        //       duartion: 4000,
+        //       icon: "⛔",
+        //     });
+        // } else{
+        //   setError(`Failed to ${isEditing ? 'update' : 'create'} note. Please try again.`);
+        //   toast.error(`Failed to ${isEditing ? 'update' : 'create'} note`);
+        // }
       } finally{;
         setLoading(false);
       }
