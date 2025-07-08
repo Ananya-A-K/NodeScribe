@@ -3,8 +3,8 @@
 
 <img src="/screenshots/login.png" alt ="login" width="80%" />
 <img src="/screenshots/create.png" alt="create" width="80%" /> 
-
-
+<img src="/screenshots/Created_Note.png" alt="create" width="80%" /> 
+<img src="/screenshots/Deleted_Note.png" alt="create" width="80%" /> 
 
 
 **NodeScribe** is a full-stack note-taking application built using the **MERN stack** — MongoDB, Express.js, React, and Node.js. It allows users to create, update, and delete notes with a clean, responsive UI. Users authentication is managed using firebase.
