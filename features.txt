@@ -144,14 +144,3 @@ Deployment:
 We do not upload node dependencies onto Github but we need those during deployment. So we have build and start in package.json file in the root to install them and run.
 Certain configs change in prod and dev like we do not need CORS, localhost, etc. This must be handles appropriately.
 
-/*
-vbananya
-mern_go_61*
-
-Connection string: mongodb+srv://vbananya:mern_go_61*@cluster0.p3f9gyf.mongodb.net/
-
-mongodb+srv://vbananya:mern_go_61*@cluster0.j3uuwl5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-
-promises
-async await
-*/
