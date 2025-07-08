@@ -1,24 +1,24 @@
-<h1 align="center">📝 NodeScribe — MERN Stack Note-Taking App</h1>
+# <h1 align="center">📝 NodeScribe — MERN Stack Note-Taking App</h1>
 
 <p align="center">
   <img src="/frontend/public/screenshot-for-readme.png" alt="NodeScribe Demo" width="80%" /> ss
 </p>
 
----
+
+
 **NodeScribe** is a full-stack note-taking application built using the **MERN stack** — MongoDB, Express.js, React, and Node.js. It allows users to create, update, and delete notes with a clean, responsive UI. 
 
-This project was built as a **hands-on learning experience**, allowing me to explore backend APIs, secure deployment, rate-limiting with Redis, and responsive frontend design with React + Tailwind CSS. It demonstrates concepts applicable in modern web development, from REST APIs and HTTP status codes to CORS, middleware, and environment variable management.
+This project was built as a **hands-on learning experience**, to explore backend APIs, secure deployment, rate-limiting with Redis, and responsive frontend design with React + Tailwind CSS. It demonstrates concepts applicable in modern web development, from REST APIs and HTTP status codes to CORS, middleware, and environment variable management.
 
----
+
 
 ## 🚀 Live Demo
 
-> _[Add your deployment link here if available]_  
-> Coming soon...
+> https://nodescribe.onrender.com/ 
 
----
 
- ⚙️ Key Features & Technical Highlights
+
+## ⚙️ Key Features & Technical Highlights
  <details> NodeScribe is designed to demonstrate a wide range of full-stack development concepts. Below are the core features and technical implementations that showcase real-world best practices in modern web development:
 
 ✅ Full-Stack MERN Architecture
@@ -89,65 +89,64 @@ UPSTASH_REDIS_REST_TOKEN=<your_upstash_redis_token>
 
 NODE_ENV=development
 ```
-🔐 Never commit .env to GitHub. Use .gitignore.
----
-Project Structure
----
+🔐 Never commit .env to GitHub <br>
+💡 Use .gitignore
 
-🧰 Getting Started
-🔧 Backend Setup
-bash
-Copy
-Edit
+## 📂 Project Structure
+
+ss
+
+- Frontend + Backend → Render
+- Database → MongoDB Atlas
+- Rate Limiting → Upstash Redis
+
+## 🧰 Getting Started
+
+### 🔧 Backend Setup
+```bash
 cd backend
 npm install
 npm run dev
+```
 Runs the backend on http://localhost:5001
 
-💻 Frontend Setup
-bash
-Copy
-Edit
+### 💻 Frontend Setup
+```bash
 cd frontend
 npm install
 npm run dev
+```
 Runs the frontend on http://localhost:5173
 
-🧪 API Endpoints
-Method	Endpoint	Description
-GET	/api/notes	Get all notes
-POST	/api/notes	Create a new note
-PUT	/api/notes/:id	Update a specific note
-DELETE	/api/notes/:id	Delete a specific note
+### 🧪 API Endpoints
 
-🌍 Deployment
-You can deploy NodeScribe easily using:
+|Method	| Endpoint	| Description |
+|--------|-----------|----------------|
+|GET	| /api/notes	|  Get all notes |
+|POST	| /api/notes	|  Create a new note |
+|PUT	| /api/notes/:id	| Update a specific note |
+|DELETE	| /api/notes/:id	| Delete a specific note |
 
-Frontend → Vercel / Netlify
+### 🌍 Deployment
+Deployed NodeScribe on Render: <br />
+https://nodescribe.onrender.com/
 
-Backend → Render / Railway / Cyclic
 
-Database → MongoDB Atlas
 
-Rate Limiting → Upstash Redis
 
-A full deployment guide is included in the repo.
-
----
-💡 Inspiration & Credit
+## 💡 Inspiration & Credit
 Original base project: ThinkBoard by burakorkmez
 
 This version — NodeScribe — enhances the idea with:
 
-Redis-based rate limiting
+- Redis-based rate limiting
+- Polished UI
+- Beginner-friendly documentation
+- Scalable structure and naming
+  
 
-Polished UI
 
-Beginner-friendly documentation
-
-Scalable structure and naming
----
-🤝 Contributing
+## 🤝 Contributing
 Feel free to fork, clone, and submit pull requests! For major changes, please open an issue first.
 
 ```bash
@@ -156,6 +155,6 @@ cd nodescribe
 ```
 Feel free to use, modify, and share.
 
----
+
 
 
