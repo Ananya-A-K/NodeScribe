@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import rateLimiter from "./middleware/rateLimiter.js";
 import cors from "cors";
 import path from "path";
+import authMiddleware from "./middleware/authMiddleware.js";
 
 dotenv.config();
 //console.log(process.env.MONGO_URI);
@@ -16,6 +17,7 @@ const __dirname = path.resolve(); //get the current directory path or source dir
 
 //middleware order of middleware matters
 //DEV ENVIRONMENT
+//CORS for development
 if(process.env.NODE_ENV !== "production"){
     app.use(cors({
         origin: "http://localhost:5173",
@@ -32,7 +34,7 @@ app.use(rateLimiter);
 //     next(); //triggers the next function - here, "getNotes" funct in notesRoutes.js
 // })
 
-app.use("/api/notes",notesRoutes);
+app.use("/api/notes",authMiddleware, notesRoutes);
 //PRODUCTION PART
 if(process.env.NODE_ENV === "production"){
     app.use(express.static(path.join(__dirname, "../frontend/dist"))) //optimised react application after taking care that CORS errors are unlikely during deployment
