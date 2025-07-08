@@ -1,12 +1,13 @@
 # <h1 align="center">📝 NodeScribe — MERN Stack Note-Taking App</h1>
 
-<p align="center">
-  <img src="/frontend/public/screenshot-for-readme.png" alt="NodeScribe Demo" width="80%" /> ss
-</p>
+
+<img src="/screenshots/login.png" alt ="login" width="80%" />
+<img src="/screenshots/create.png" alt="create" width="80%" /> ss
 
 
 
-**NodeScribe** is a full-stack note-taking application built using the **MERN stack** — MongoDB, Express.js, React, and Node.js. It allows users to create, update, and delete notes with a clean, responsive UI. 
+
+**NodeScribe** is a full-stack note-taking application built using the **MERN stack** — MongoDB, Express.js, React, and Node.js. It allows users to create, update, and delete notes with a clean, responsive UI. Users atheentication is managed using firebase.
 
 This project was built as a **hands-on learning experience**, to explore backend APIs, secure deployment, rate-limiting with Redis, and responsive frontend design with React + Tailwind CSS. It demonstrates concepts applicable in modern web development, from REST APIs and HTTP status codes to CORS, middleware, and environment variable management.
 
@@ -25,6 +26,13 @@ This project was built as a **hands-on learning experience**, to explore backend
 Built using the MERN stack: MongoDB (NoSQL database), Express.js (web framework), React.js (frontend library), and Node.js (runtime environment).
 
 Demonstrates clear separation of concerns with a modular folder structure for models, controllers, routes, and middleware.
+
+🔒 Firebase Authentication
+Uses Firebase Authentication for user authentication, providing a secure and scalable solution for user management.
+Integrates a third-party authentication service into a full-stack application.
+
+🚀 Deployment on render
+Deployed both the frontend and backend on the render platform, providing a scalable and reliable hosting solution.
 
 🧠 RESTful API Design
 Implements a fully functional REST API that supports GET, POST, PUT, and DELETE operations for managing notes.
@@ -94,7 +102,9 @@ NODE_ENV=development
 
 ## 📂 Project Structure
 
-ss
+<img src="/screenshots/dir.png">
+<img src="/screenshots/back.png">
+<img src="/screenshots/front.png">
 
 - Frontend + Backend → Render
 - Database → MongoDB Atlas
