@@ -12,10 +12,9 @@
 This project was built as a **hands-on learning experience**, to explore backend APIs, secure deployment, rate-limiting with Redis, and responsive frontend design with React + Tailwind CSS. It demonstrates concepts applicable in modern web development, from REST APIs and HTTP status codes to CORS, middleware, and environment variable management.
 
 
+<!-- ## 🚀 Live Demo -->
 
-## 🚀 Live Demo
-
-> https://nodescribe.onrender.com/ 
+<!-- > https://nodescribe.onrender.com/ -->
 
 
 
