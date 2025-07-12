@@ -2,8 +2,7 @@ import Note from '../models/Note.js';
 
 export const getNotes = async (req, res) => {
     try {
-        const notes = await Note.find({ userId: req.user.uid })
-            .sort({ updatedAt: -1 });
+        const notes = await Note.find({ userId: req.user.uid }).sort({ updatedAt: -1 });
         res.json(notes);
     } catch (error) {
         console.error('Error fetching notes:', error);
@@ -65,6 +64,7 @@ export const updateNote = async (req, res) => {
             { 
                 title: title.trim(), 
                 content: content.trim(),
+                userEmail: req.user.email,
                 updatedAt: new Date()
             },
             { new: true }

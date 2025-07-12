@@ -80,6 +80,7 @@ const CreatePage = () => {
           });
           if (response.status === 201) {  // ← FIX: Correct status check
             toast.success('Note created successfully!');
+            //response.save();
             navigate('/');
           }
           setSuccess('Note created successfully!');
