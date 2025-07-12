@@ -1,5 +1,10 @@
 # 📝 NodeScribe — MERN Stack Note-Taking App
 
+**NodeScribe** is a full-stack note-taking application built using the **MERN stack** — MongoDB, Express.js, React, and Node.js. It allows users to create, update, and delete notes with a clean, responsive UI. Users authentication is managed using firebase.
+
+This project was built as a **hands-on learning experience**, to explore backend APIs, secure deployment, rate-limiting with Redis, and responsive frontend design with React + Tailwind CSS. It demonstrates concepts applicable in modern web development, from REST APIs and HTTP status codes to CORS, middleware, and environment variable management.
+<br />
+<br>
 
 <img src="/screenshots/login.png" alt ="login" width="80%" />
 <img src="/screenshots/no_note.png" alt="create" width="80%" /> 
@@ -10,9 +15,6 @@
 <img src="/screenshots/loading.png" alt="create" width="80%" /> 
 
 
-**NodeScribe** is a full-stack note-taking application built using the **MERN stack** — MongoDB, Express.js, React, and Node.js. It allows users to create, update, and delete notes with a clean, responsive UI. Users authentication is managed using firebase.
-
-This project was built as a **hands-on learning experience**, to explore backend APIs, secure deployment, rate-limiting with Redis, and responsive frontend design with React + Tailwind CSS. It demonstrates concepts applicable in modern web development, from REST APIs and HTTP status codes to CORS, middleware, and environment variable management.
 
 
 ## 🚀 Live Demo
