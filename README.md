@@ -107,6 +107,11 @@ NODE_ENV=development
 
 ## 🧰 Getting Started
 
+### 📷 Clone the repo
+```bash
+git clone https://github.com/Ananya-A-K/NodeScribe.git
+```
+
 ### 🔧 Backend Setup
 ```bash
 cd backend
