@@ -35,7 +35,7 @@ NodeScribe is designed to demonstrate a wide range of full-stack development con
 - Integrates a third-party authentication service into a full-stack application.
 
 ### 🚀 Deployment on render
-Deployed both the frontend and backend on the render platform, providing a scalable and reliable hosting solution.
+- Deployed both the frontend and backend on the render platform, providing a scalable and reliable hosting solution.
 
 ### 🧠 RESTful API Design
 - Implements a fully functional REST API that supports GET, POST, PUT, and DELETE operations for managing notes.
@@ -59,7 +59,7 @@ Deployed both the frontend and backend on the render platform, providing a scala
 ### 🌐 Cross-Origin Resource Sharing (CORS)
 - Configures CORS to allow secure cross-origin requests from the frontend to the backend.
 
-- Explains browser-enforced security policies and how proper headers are required for accessing APIs from different origins.
+- Demonstrates browser-enforced security policies and how proper headers are required for accessing APIs from different origins.
 
 ### 🖥️ Responsive Frontend with React, Tailwind CSS, and DaisyUI
 - The frontend is built using React.js with Vite for faster bundling and hot module replacement.
@@ -95,6 +95,17 @@ UPSTASH_REDIS_REST_URL=<your_upstash_redis_url>
 UPSTASH_REDIS_REST_TOKEN=<your_upstash_redis_token>
 
 NODE_ENV=development
+```
+
+Create a `.env` file in your `/frontend` directory with the following:
+
+```env
+VITE_FIREBASE_API_KEY=<your_key>
+VITE_FIREBASE_AUTH_DOMAIN=<domin>
+VITE_FIREBASE_PROJECT_ID=<project_id>
+VITE_FIREBASE_STORAGE_BUCKET=<bucket>
+VITE_FIREBASE_MESSAGING_SENDER_ID=<sender_id>
+VITE_FIREBASE_APP_ID=<app_id>
 ```
 🔐 Never commit .env to GitHub <br>
 💡 Use .gitignore
